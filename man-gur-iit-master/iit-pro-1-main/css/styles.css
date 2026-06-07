@@ -1015,6 +1015,7 @@ html.dark .tb-dropdown-menu { background: var(--card); border-color: var(--borde
   padding-top: var(--topbar-h);
   display: grid;
   grid-template-columns: 1fr;
+  align-items: start;
   min-height: 100vh;
   transition: margin-left 0.3s ease;
 }
@@ -1146,14 +1147,19 @@ body.preview-open .app-workspace {
 }
 
 .main-content {
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
   min-width: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
   min-height: calc(100vh - var(--topbar-h));
 }
 
 .app-workspace > .view {
   grid-column: 1;
   grid-row: 1;
+  width: 100%;
   min-width: 0;
   padding: 26px 32px 36px;
   box-sizing: border-box;
@@ -1780,6 +1786,8 @@ body.preview-open .pdf-preview-mobile-tabs { display: none; }
 .pdf-preview-panel {
   display: none;
   flex-direction: column;
+  grid-column: 2;
+  grid-row: 1;
   position: sticky;
   top: var(--topbar-h);
   height: calc(100vh - var(--topbar-h));

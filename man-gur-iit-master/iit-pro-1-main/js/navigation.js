@@ -213,12 +213,16 @@ function normalizeAnnexureViewLayout(id) {
 
 function repairMainContentStructure() {
   const workspace = document.querySelector('.app-workspace');
-  const pageBody = document.querySelector('.main-content .page-body');
-  if (!workspace || !pageBody) return;
+  const mainContent = document.querySelector('.main-content');
+  const pageBody = mainContent ? mainContent.querySelector('.page-body') : null;
+  if (!workspace || !mainContent || !pageBody) return;
 
   workspace.querySelectorAll(':scope > .view, :scope > div[id^="view-"]').forEach(view => {
     pageBody.appendChild(view);
   });
+
+  workspace.scrollLeft = 0;
+  mainContent.scrollLeft = 0;
 }
 
 function showView(id, btn, push = true) {

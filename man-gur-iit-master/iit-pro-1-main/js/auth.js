@@ -238,6 +238,7 @@ async function showAppScreen() {
   });
 
   await initApp();
+  if (typeof repairMainContentStructure === 'function') repairMainContentStructure();
 
   let targetView = window.location.hash ? window.location.hash.slice(1).trim() : currentViewId;
   if (isSdlc) {
